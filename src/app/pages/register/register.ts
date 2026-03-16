@@ -2,10 +2,11 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import { PassowordField } from '../../shared/components/passoword-field/passoword-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -13,10 +14,11 @@ import {MatDividerModule} from '@angular/material/divider';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatIconModule, MatDividerModule],
+  imports: [MatCardModule, MatButtonModule, MatSelectModule, MatIconModule, MatDividerModule, PassowordField, MatFormFieldModule, MatInputModule],
   templateUrl: './register.html',
   styleUrls: ['./register.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+
   encapsulation: ViewEncapsulation.None
 })
 export class Register {
