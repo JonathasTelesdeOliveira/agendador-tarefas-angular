@@ -5,22 +5,27 @@
     </mat-card-header>
 
     <mat-card-content>
-      <mat-form-field class="full-width">
+      <form [formGroup]="form">
+
+        <mat-form-field class="full-width">
         <mat-label>Nome</mat-label>
-        <input matInput placeholder="Digite seu Nome Completo" />
-      </mat-form-field>
+        <input matInput formControlName="fullName" placeholder="Digite seu Nome Completo" />
+        </mat-form-field>
 
-      <mat-form-field class="full-width">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Digite seu email" />
-      </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Digite seu email" />
+        </mat-form-field>
 
-      <input-passoword-field></input-passoword-field>
+        <input-passoword-field [control]="passowordControl"></input-passoword-field>
+
+      </form>
+    
 
     </mat-card-content>
 
       <mat-card-actions>
-        <button matButton="elevated"  type="submit">cadastrar</button>
+        <button matButton="elevated"  (click)="submit()" type="submit">cadastrar</button>
       </mat-card-actions>
 
 
