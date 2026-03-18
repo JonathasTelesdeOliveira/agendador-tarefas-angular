@@ -7,8 +7,12 @@ import {MatDividerModule} from '@angular/material/divider';
 import { PassowordField } from '../../shared/components/passoword-field/passoword-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormGroup, FormBuilder, FormControl} from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import {
+   ReactiveFormsModule, 
+  FormGroup, 
+  FormBuilder, 
+  FormControl, 
+  Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -37,9 +41,9 @@ export class Register {
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      fullName: [''],
-      email: [''],
-      password: ['']
+      fullName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
 
@@ -48,7 +52,11 @@ export class Register {
   }
 
   submit() {
-    console.log(this.form.value)
+    if(this.form.invalid) {
+      this.form.markAllAsTouched();
+      return 
+    }
+    console.log("formulario submetido", this.form.value)
   }
 }
 
