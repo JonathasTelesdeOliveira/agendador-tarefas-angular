@@ -8,11 +8,12 @@ import { PassowordField } from '../../shared/components/passoword-field/passowor
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {
-   ReactiveFormsModule, 
+  ReactiveFormsModule, 
   FormGroup, 
   FormBuilder, 
   FormControl, 
   Validators} from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +27,8 @@ import {
     PassowordField, 
     MatFormFieldModule, 
     MatInputModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
 
   templateUrl: './register.html',
