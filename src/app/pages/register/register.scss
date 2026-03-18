@@ -54,3 +54,16 @@
     padding: 7px 32px !important;
 
 }
+
+
+.register .mdc-text-field--invalid .mdc-floating-label {
+  color: red !important;
+}
+
+.register .mdc-text-field--invalid .mdc-text-field__input {
+  color: red !important;
+}
+
+.register .mdc-text-field--invalid .mdc-text-field__input::placeholder {
+  color: red !important;
+}

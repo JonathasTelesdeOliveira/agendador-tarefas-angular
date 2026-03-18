@@ -21,14 +21,11 @@
 
       </form>
     
-
     </mat-card-content>
 
       <mat-card-actions>
-        <button matButton="elevated"  (click)="submit()" type="submit">cadastrar</button>
+        <button matButton="elevated"  [disabled]="form.invalid"  (click)="submit()" type="submit">cadastrar</button>
       </mat-card-actions>
-
-
-
+      
   </mat-card>
 </div>
