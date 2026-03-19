@@ -13,7 +13,6 @@ import {
   FormBuilder, 
   FormControl, 
   Validators} from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -27,8 +26,7 @@ import { CommonModule } from '@angular/common';
     PassowordField, 
     MatFormFieldModule, 
     MatInputModule, 
-    ReactiveFormsModule,
-    CommonModule
+    ReactiveFormsModule
   ],
 
   templateUrl: './register.html',
@@ -47,6 +45,20 @@ export class Register {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
+  }
+
+  get emailError(): String | null {
+      const control = this.form.get('email');
+      if (control?.hasError('required')) {return 'O email é obrigatório!'}
+      if (control?.hasError('email')) {return 'Digite um email válido!.'}
+    return null;
+  }
+
+   get fullNameError(): String | null {
+      const control = this.form.get('fullName');
+      if (control?.hasError('required')) {return 'O nome é obrigatório!'}
+      if (control?.hasError('minlength')) {return 'O nome tem menos de 3 letras.'}
+    return null;
   }
 
   get passowordControl(): FormControl{
