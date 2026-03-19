@@ -29,4 +29,11 @@ export class PassowordField {
 
   @Input({required: true}) control!: FormControl; 
 
+    get passowordError(): String | null {
+      const control = this.control;
+      if (control?.hasError('required')) {return 'Senha obrigatória!'}
+      if (control?.hasError('minlength')) {return 'Senha deve conter no mínimo 6 caracteres.'}
+    return null;
+  }
+
 }
