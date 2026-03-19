@@ -11,5 +11,10 @@
                 >
                 <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
+            
+        @if(passowordError) {
+            <mat-error>{{ passowordError }}</mat-error>
+        }
+        
   </mat-form-field>
 </div>

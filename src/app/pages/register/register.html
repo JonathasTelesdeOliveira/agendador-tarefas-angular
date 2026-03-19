@@ -13,20 +13,13 @@
           @if(fullNameError){
             <mat-error>{{fullNameError}}</mat-error>
           }
-          @if(fullNameError){
-            <mat-error>{{fullNameError}}</mat-error>
-          }  
+     
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Email</mat-label>
           <input matInput formControlName="email" placeholder="Digite seu email" />
-          @if(emailError) {
-            <mat-error>{{emailError}}</mat-error>
-          }
-          @if(emailError) { 
-          <mat-error>{{emailError}}</mat-error>
-          }
+          @if(emailError) {<mat-error>{{emailError}}</mat-error>}
         </mat-form-field>
 
     
