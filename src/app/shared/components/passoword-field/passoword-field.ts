@@ -13,6 +13,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule, 
     MatIconModule,
     ReactiveFormsModule
+   
   ],
 
   templateUrl: './passoword-field.html',
