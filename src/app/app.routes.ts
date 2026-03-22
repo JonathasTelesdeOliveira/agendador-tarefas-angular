@@ -1,4 +1,3 @@
-import { Component } from '@angular/compiler';
 import { Routes } from '@angular/router';
 import { Register } from './pages/register/register';
 
