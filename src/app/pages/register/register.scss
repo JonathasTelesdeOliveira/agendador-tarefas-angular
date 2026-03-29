@@ -1,0 +1,75 @@
+.register{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+
+}
+
+.register mat-card{
+  width: 400px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.register .mat-mdc-card-header {
+  justify-content: center;
+  text-align: center !important;
+  font-size: 24px !important;
+}
+
+.register .mdc-notched-outline__leading{
+  display: none;
+}
+
+.register .mdc-notched-outline__trailing{
+  display: none;
+}
+
+.register .mdc-line-ripple{
+  display: none;
+}
+
+.register .mdc-text-field {
+  background-color: #adc6f2 !important;
+  border-radius: 25px;
+}
+
+.register .mdc-text-field:hover {
+  background-color: #91b6f7 !important ;
+}
+
+
+.register .mat-mdc-raised-button {
+  background-color: #0754d8!important;
+  border-radius: 20px !important;
+  color: white !important;
+  padding: 5px 32px !important;
+  margin-left: 30%;
+}
+
+.register .mat-mdc-raised-button:hover {
+  background-color: #04a393 !important;
+    padding: 7px 32px !important;
+
+}
+
+
+.register .mdc-text-field--invalid .mdc-floating-label {
+  color: red !important;
+}
+
+.register .mdc-text-field--invalid .mdc-text-field__input {
+  color: red !important;
+}
+
+.register .mdc-text-field--invalid .mdc-text-field__input::placeholder {
+  color: red !important;
+}
+
+.register mat-error {
+  margin-left: 8px;
+  display: block;
+  color:red;
+}

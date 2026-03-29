@@ -1,0 +1,26 @@
+
+.app-top-menu {
+    display: flex;
+    flex-direction: space-between;
+    align-items: center;
+}
+
+.app-top-menu .spacer{
+    flex: 1 1 auto;
+}
+
+.app-top-menu button{
+    height: 100%;
+    border-radius: 0px;
+}
+
+.app-logo {
+    display: block;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    max-width: 100%;
+}                                         
