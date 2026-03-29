@@ -13,6 +13,11 @@ import {
   FormBuilder, 
   FormControl, 
   Validators} from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
+
 
 @Component({
   selector: 'app-register',
@@ -26,51 +31,73 @@ import {
     PassowordField, 
     MatFormFieldModule, 
     MatInputModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
 
   templateUrl: './register.html',
   styleUrls: ['./register.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
+  
 })
 export class Register {
-  title = 'agendador-tarefas'
+  // title = 'agendador-tarefas'
   form: FormGroup;
+  isLoading = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private userService: UserService,
+    private router: Router
+  ){
     this.form = this.formBuilder.group({
-      fullName: ['', [Validators.required, Validators.minLength(3)]],
+      nome: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    })
+      senha: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
-  get emailError(): String | null {
+    get passowordControl(): FormControl{
+    return this.form.get('senha') as FormControl;
+  }
+
+    get emailError(): string | null {
       const control = this.form.get('email');
       if (control?.hasError('required')) {return 'O email é obrigatório!'}
       if (control?.hasError('email')) {return 'Digite um email válido!.'}
     return null;
   }
 
-   get fullNameError(): String | null {
-      const control = this.form.get('fullName');
-      if (control?.hasError('required')) {return 'O nome é obrigatório!'}
-      if (control?.hasError('minlength')) {return 'O nome tem menos de 3 letras.'}
-    return null;
-  }
-
-  get passowordControl(): FormControl{
-    return this.form.get('password') as FormControl
-  }
+   get nomeError(): string | null {
+      const control = this.form.get('nome');
+      if (control?.hasError('required')) {
+        return 'O nome é obrigatório!'
+      }
+      if (control?.hasError('minlength')) {
+        return 'O nome tem menos de 3 letras.'
+      }
+      return null;
+    }
 
   submit() {
     if(this.form.invalid) {
       this.form.markAllAsTouched();
       return 
     }
-    console.log("formulario submetido", this.form.value)
+
+    const formData = this.form.value;
+    this.isLoading = true;
+    this.userService.register(formData)
+    .pipe(finalize(() => this.isLoading = false)) 
+    .subscribe({
+      next: (response) => {
+        this.router.navigate(['/login']);
+      },
+      error: (error) => {
+        console.error("Erro ao registrar usuário", error);
+      },
+    })
   }
 }
 

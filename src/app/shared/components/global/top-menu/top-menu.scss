@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: space-between;
     align-items: center;
+    background-color: #35d7ff;
 }
 
 .app-top-menu .spacer{
@@ -14,13 +15,23 @@
     border-radius: 0px;
 }
 
+.app-top-menu .cadastro-btn {
+    background-color: #ff4081;
+    color: rgb(231, 229, 229);
+}
+
+.app-top-menu .cadastro-btn:hover {
+    background-color: #f51c64;
+    color:white
+}
+
 .app-logo {
     display: block;
     align-items: center;
 }
 
 .logo-img {
-    height: 60px;
+    height: 70px;
     width: auto;
     max-width: 100%;
 }                                         
