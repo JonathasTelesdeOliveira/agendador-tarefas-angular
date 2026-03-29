@@ -1,14 +1,16 @@
 <mat-toolbar class="app-top-menu">
-  <span routerLink="/" class="app-logo"> 
-    <img [src]="applogo" alt="Logo" class="logo-img">
+  <span class="app-logo"> 
+    <img routerLink="/" [src]="applogo" alt="Logo" class="logo-img">
    </span>
   <span class="spacer"></span>
   
-       <a matButton>Home</a>
-      <a matButton>About</a>
+       <a matButton>Serviços</a>
+      <a matButton>Contatos</a>
    <span class="spacer"></span>
 
    <button matButton> Entre</button>
-   <button  matButton="filled" routerLink="/register">Cadastre-se</button>
+   <button  matButton="filled" routerLink="/register" class="cadastro-btn" [disabled]= 'estaNaRotaRegister()'>
+    Cadastre-se
+   </button>
 
 </mat-toolbar>

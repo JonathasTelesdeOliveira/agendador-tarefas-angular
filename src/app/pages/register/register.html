@@ -9,9 +9,9 @@
 
         <mat-form-field class="full-width">
           <mat-label>Nome</mat-label>
-          <input matInput formControlName="fullName" placeholder="Digite seu Nome Completo" />
-          @if(fullNameError){
-            <mat-error>{{fullNameError}}</mat-error>
+          <input matInput formControlName="nome" placeholder="Digite seu Nome Completo" />
+          @if(nomeError){
+            <mat-error>{{nomeError}}</mat-error>
           }
      
         </mat-form-field>
@@ -31,7 +31,13 @@
     </mat-card-content>
 
       <mat-card-actions>
-        <button matButton="elevated"  [disabled]="form.invalid"  (click)="submit()" type="submit">cadastrar</button>
+        <button matButton="elevated"  [disabled]="form.invalid || isLoading"  (click)="submit()" type="submit">
+          <span class="cad-button-register">
+            {{ isLoading ? "Cadastrando..." : "Cadastrar" }}
+          @if (isLoading) {<mat-spinner diameter="20"></mat-spinner>}
+
+          </span>
+        </button>
       </mat-card-actions>
       
   </mat-card>
