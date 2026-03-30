@@ -38,6 +38,11 @@ interface UserRegisterResponse {
   }] | null
 }
 
+export interface UserLoginPayload {
+  email: string;
+  senha: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -51,6 +56,10 @@ constructor(private http: HttpClient) {}
 
 register(bady: UserRegisterPayload): Observable<UserRegisterResponse> {
   return this.http.post<UserRegisterResponse>(`${this.apiUrl}/usuario`, bady);
+}
+
+login(bady: UserLoginPayload): Observable<String> {
+  return this.http.post<String>(`${this.apiUrl}/usuario/login`, bady, {responseType: 'text' as 'json'});
 }
 
 }

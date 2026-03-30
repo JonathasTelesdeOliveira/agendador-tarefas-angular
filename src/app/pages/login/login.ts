@@ -14,14 +14,13 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { UserService } from '../../services/user.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { UserLoginPayload, UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
+  selector: 'app-login',
   imports: [
     MatCardModule,
     MatButtonModule,
@@ -34,15 +33,13 @@ import { finalize } from 'rxjs';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
   ],
-
-  templateUrl: './register.html',
-  styleUrls: ['./register.scss'],
+  templateUrl: './login.html',
+  styleUrl: './login.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class Register {
-  // title = 'agendador-tarefas'
-  form: FormGroup;
+export class Login {
+  form: FormGroup<{email: FormControl<string>; senha: FormControl<string>}>;
   isLoading = false;
 
   constructor(
@@ -51,9 +48,8 @@ export class Register {
     private router: Router,
   ) {
     this.form = this.formBuilder.group({
-      nome: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required, Validators.minLength(6)]],
+      email: this.formBuilder.control ('', {validators: [Validators.required, Validators.email], nonNullable: true}),
+      senha: this.formBuilder.control ('', {validators: [Validators.required, Validators.minLength(6)], nonNullable: true}),
     });
   }
 
@@ -64,21 +60,10 @@ export class Register {
   get emailError(): string | null {
     const control = this.form.get('email');
     if (control?.hasError('required')) {
-      return 'O email é obrigatório!';
+      return 'O email obrigatório!';
     }
     if (control?.hasError('email')) {
       return 'Digite um email válido!.';
-    }
-    return null;
-  }
-
-  get nomeError(): string | null {
-    const control = this.form.get('nome');
-    if (control?.hasError('required')) {
-      return 'O nome é obrigatório!';
-    }
-    if (control?.hasError('minlength')) {
-      return 'O nome tem menos de 3 letras.';
     }
     return null;
   }
@@ -89,17 +74,19 @@ export class Register {
       return;
     }
 
-    const formData = this.form.value;
+    const formData = this.form.value as UserLoginPayload;
+    
     this.isLoading = true;
+
     this.userService
-      .register(formData)
+      .login(formData)
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
         next: (response) => {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/']);
         },
         error: (error) => {
-          console.error('Erro ao registrar usuário', error);
+          console.error('Erro ao Logar', error);
         },
       });
   }

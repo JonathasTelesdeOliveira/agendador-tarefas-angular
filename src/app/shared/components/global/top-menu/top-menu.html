@@ -8,7 +8,9 @@
       <a matButton>Contatos</a>
    <span class="spacer"></span>
 
-   <button matButton> Entre</button>
+   <button matButton="filled" routerLink="/login" class="cadastro-btn" [disabled]= 'estanaRotaLogin()'>
+     Entre
+    </button>
    <button  matButton="filled" routerLink="/register" class="cadastro-btn" [disabled]= 'estaNaRotaRegister()'>
     Cadastre-se
    </button>
