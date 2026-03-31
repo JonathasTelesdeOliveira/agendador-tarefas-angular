@@ -29,6 +29,7 @@ export class PassowordField {
   }
 
   @Input({required: true}) control!: FormControl; 
+  @Input() placeholder: string = 'Digite a sua senha';
 
     get passowordError(): String | null {
       const control = this.control;
