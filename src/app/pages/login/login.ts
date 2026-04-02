@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
 import { PassowordField } from '../../shared/components/passoword-field/passoword-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 import {
   ReactiveFormsModule,
   FormGroup,
@@ -14,15 +14,17 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UserLoginPayload, UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @Component({
   selector: 'app-login',
   imports: [
+    MatProgressSpinnerModule,
     MatCardModule,
     MatButtonModule,
     MatSelectModule,
@@ -32,7 +34,8 @@ import { AuthService } from '../../services/auth.service';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule,
+
+    MatButtonModule, MatDividerModule, MatIconModule
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
