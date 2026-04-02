@@ -28,15 +28,21 @@
     
     </mat-card-content>
 
-      <mat-card-actions>
-        <button matButton="elevated"  [disabled]="form.invalid || isLoading"  (click)="submit()" type="submit">
-          <span class="cad-button-register">
-            {{ isLoading ? "Cadastrando..." : "Cadastrar" }}
-          @if (isLoading) {<mat-spinner diameter="20"></mat-spinner>}
-
-          </span>
+<mat-divider />
+    <section>
+      <div>
+        <button
+          class="button-2"
+          [disabled]="form.invalid || isLoading"
+          (click)="submit()"
+          type="submit"
+          matButton="tonal"
+        >{{ isLoading ? 'Cadastrando...' : 'Cadastrar' }}
         </button>
-      </mat-card-actions>
+      </div>
+    </section>
+    <mat-divider />
+      
       
   </mat-card>
 </div>

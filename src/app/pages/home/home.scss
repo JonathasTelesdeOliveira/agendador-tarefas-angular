@@ -1,0 +1,20 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+
+    .button-2 {
+      background-color: #001aff !important;
+      color: white !important;
+      margin: 10px;
+      border-radius: 25px !important;
+    }
+
+    .button-2:hover {
+      background-color: #222aff !important;
+      opacity: 0.8;
+    }
+  }
+
+
+

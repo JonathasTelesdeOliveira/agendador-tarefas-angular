@@ -1,88 +1,86 @@
-.register{
+.register {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   background-color: #f1f1f1;
 
-mat-card{
-width: 400px;
-padding: 20px;
-background-color: #f9f9f9;
-}
+  mat-card {
+    width: 400px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    opacity: 0.8;
+    border-radius: 25px;
+  }
 
-.mat-mdc-card-header {
-justify-content: center;
-text-align: center !important;
-font-size: 24px !important;
-}
+  .mat-mdc-card-header {
+    justify-content: center;
+    text-align: center !important;
+    font-size: 24px !important;
+  }
 
-.mdc-notched-outline__leading {
-  display: none;
-}
+  .mdc-notched-outline__leading {
+    display: none;
+  }
 
-.mdc-notched-outline__trailing {
-  display: none;
-}
+  .mdc-notched-outline__trailing {
+    display: none;
+  }
 
-.mdc-line-ripple {
-  display: none;
-}
+  .mdc-line-ripple {
+    display: none;
+  }
 
-.mdc-text-field {
-  background-color: #adc6f2 !important;
-  border-radius: 25px;
-}
+  .mdc-text-field {
+    background-color: #adc6f2 !important;
+    border-radius: 25px;
+  }
 
-.mdc-text-field:hover {
-  background-color: #91b6f7 !important ;
-}
+  .mdc-text-field:hover {
+    background-color: #91b6f7 !important ;
+  }
 
-.mat-mdc-raised-button {
-  background-color: #0754d8 !important;
-  border-radius: 20px !important;
-  color: white !important;
-  // padding: 5px 32px !important;
-  // margin-left: 30%;
-  width: 100%;
-  // height: auto !important;
-  display: block;
-}
+  .mat-mdc-raised-button:hover {
+    background-color: #04a393 !important;
+    // padding: 7px 32px !important;
+  }
 
-.mat-mdc-raised-button:hover {
-  background-color: #04a393 !important;
-  // padding: 7px 32px !important;
-}
+  .mdc-text-field--invalid .mdc-floating-label {
+    color: red !important;
+  }
 
-.mdc-text-field--invalid .mdc-floating-label {
-  color: red !important;
-}
+  .mdc-text-field--invalid .mdc-text-field__input {
+    color: red !important;
+  }
 
-.mdc-text-field--invalid .mdc-text-field__input {
-  color: red !important;
-}
+  .mdc-text-field--invalid .mdc-text-field__input::placeholder {
+    color: red !important;
+  }
 
-.mdc-text-field--invalid .mdc-text-field__input::placeholder {
-  color: red !important;
-}
+  mat-error {
+    margin-left: 8px;
+    display: block;
+    color: red;
+  }
 
-mat-error {
-  margin-left: 8px;
-  display: block;
-  color: red;
-}
+  .mat-divider {
+    border-top-style: none;
+  }
 
-.cad-button-register {
-  display: inline-flex;
-  align-items: center;
-  // background-color: green;
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  mat-spinner {
-      margin-left: 10px;
-      // background-color: yellow;
+    .button-2 {
+      background-color: #001aff;
+      color: white;
+      border-radius: 30px;
     }
+
+    .button-2:hover {
+      background-color: #222aff !important;
+      opacity: 0.8;
+    }
+  }
 }
-}
-
-
-
