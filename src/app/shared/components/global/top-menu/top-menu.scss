@@ -1,20 +1,31 @@
 .app-top-menu {
+  min-height: 90px;
+
   display: flex;
   flex-direction: space-between;
   align-items: center;
+  background-color: rgb(125, 83, 78) !important;
 
   .spacer {
     flex: 1 1 auto;
   }
 
-  .app-top-men button {
+  .app-top-menu button {
     height: 100%;
     border-radius: 0px;
   }
 
-  .cadastro-btn:hover {
-      background-color: #35d7ff;
+  .cadastro-btn {
+    background-color: #35d7ff;
     color: white;
+    margin: 5px;
+    border-radius: 20px;
+  }
+
+  .cadastro-btn:hover {
+    background-color: #aedeea;
+    color: rgb(125, 83, 78) !important;
+    opacity: 0.8;
   }
 }
 
@@ -24,7 +35,6 @@
 }
 
 .logo-img {
-  height: 70px;
+  height: 80px;
   width: auto;
-  max-width: 100%;
 }

@@ -1,20 +1,52 @@
-section {
+.Home-hero {
+  font-family: Verdana, Tahoma, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 3.5rem;
+  font-size: 32px;
+  flex-wrap: wrap;
+
+  .Hero-text {
+    max-width: 500px;
+    margin-right: 20px;
+    font-size: 20px;
+  }
+
+  .Hero-img {
+    flex: 1 1 500px;
     display: flex;
-    flex-direction: column;
-    align-items: right;
+    justify-content: center;
 
-    .button-2 {
-      background-color: #001aff !important;
-      color: white !important;
-      margin: 10px;
-      border-radius: 25px !important;
-    }
-
-    .button-2:hover {
-      background-color: #222aff !important;
-      opacity: 0.8;
+    .hero-image {
+      max-width: 60%;
+      height: auto;
     }
   }
 
+  a {
+    color: #ff6200;
+  }
+}
 
+// Estilização dos botões e do layout da seção principal da página inicial.
 
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+
+  .Hero-buttons button{
+    margin: 0.3rem;
+  }
+  button {
+    background-color: #001aff !important;
+    color: white !important;
+    border-radius: 25px !important;
+  }
+
+  button:hover {
+    background-color: #222aff !important;
+    opacity: 0.8;
+  }
+}
