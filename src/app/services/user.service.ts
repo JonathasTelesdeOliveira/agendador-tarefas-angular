@@ -58,8 +58,8 @@ register(bady: UserRegisterPayload): Observable<UserRegisterResponse> {
   return this.http.post<UserRegisterResponse>(`${this.apiUrl}/usuario`, bady);
 }
 
-login(bady: UserLoginPayload): Observable<String> {
-  return this.http.post<String>(`${this.apiUrl}/usuario/login`, bady, {responseType: 'text' as 'json'});
+login(bady: UserLoginPayload): Observable<string> {
+  return this.http.post<string>(`${this.apiUrl}/usuario/login`, bady, {responseType: 'text' as 'json'});
 }
 
 }

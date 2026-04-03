@@ -18,20 +18,19 @@
       </form>
     </mat-card-content>
 
-    <mat-card-actions>
-      <button
-        matButton="elevated"
-        [disabled]="form.invalid || isLoading"
-        (click)="submit()"
-        type="submit"
-      >
-        <span class="cad-button-register">
-          {{ isLoading ? 'Entrando...' : 'Entrar' }}
-          @if (isLoading) {
-            <mat-spinner diameter="20"></mat-spinner>
-          }
-        </span>
-      </button>
-    </mat-card-actions>
+    <mat-divider />
+    <section>
+      <div>
+        <button
+          class="button-2"
+          [disabled]="form.invalid || isLoading"
+          (click)="submit()"
+          type="submit"
+          matButton="tonal"
+        >{{ isLoading ? 'Entrando...' : 'Entrar' }}
+        </button>
+      </div>
+    </section>
+    <mat-divider />
   </mat-card>
 </div>
