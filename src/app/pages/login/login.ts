@@ -58,6 +58,12 @@ export class Login {
     });
   }
 
+  ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/tasks']);
+    }
+  }
+  
   get passowordControl(): FormControl {
     return this.form.get('senha') as FormControl;
   }
@@ -89,7 +95,7 @@ export class Login {
       .subscribe({
         next: (response) => {
           this.authService.saveToken(response);
-          this.router.navigate(['/']);
+          this.router.navigate(['/tasks']);
         },
         error: (error) => {
           console.error('Erro ao Logar', error);
