@@ -1,8 +1,9 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, ViewEncapsulation} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -14,5 +15,19 @@ import { RouterLink } from "@angular/router";
 })
 export class Home {
   imgHero = 'assets/img-hero.png';
+
+  //   constructor(
+  //   private router: Router,
+  //   private authService: AuthService,
+  // ) {}
+
+  private router = inject(Router);
+  private authService = inject(AuthService);
+
+    ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/tasks']);
+    }
+  }
 
 }

@@ -25,5 +25,8 @@ export class AuthService {
     return this.getToken() !== null;
   }
 
+  isLoggedIn(): boolean {
+    return !!this.getToken();
+  }
 
 }

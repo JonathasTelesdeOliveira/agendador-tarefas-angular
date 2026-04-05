@@ -1,0 +1,50 @@
+.example-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.task-section {
+  display: flex;
+  min-height: 70vh;
+  justify-content: center;
+  align-items: center;
+
+  .hero-card {
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.8) !important;
+    padding: 1.3rem;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  button {
+    background-color: #001aff !important;
+    border-radius: 25px !important;
+    padding: 12px 24px !important;
+    color: white !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+  }
+
+  button:hover {
+    background-color: #0202f3 !important;
+    opacity: 0.8 !important;
+  }
+
+  h2 {
+    color: rgb(255, 134, 4) !important;
+    text-decoration: none !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+    font-weight: 530 !important;
+    line-height: 1.5 !important;
+  }
+}
