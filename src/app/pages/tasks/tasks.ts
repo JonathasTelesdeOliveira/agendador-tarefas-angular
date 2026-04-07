@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatCardModule, MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './tasks.html',
   styleUrl: './tasks.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class Tasks {

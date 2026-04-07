@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: space-between;
   align-items: center;
-  background-color: rgb(125, 83, 78) !important;
+  background-color: #d9eafd !important;
 
   .spacer {
     flex: 1 1 auto;
@@ -23,7 +23,7 @@
   }
 
   .cadastro-btn:hover {
-    background-color: #aedeea;
+    background-color: #9aa6b2;
     color: rgb(125, 83, 78) !important;
     opacity: 0.8;
   }
@@ -37,4 +37,41 @@
 .logo-img {
   height: 80px;
   width: auto;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.Hero_header_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.Hero_card_img {
+  height: 60px !important;
+  width: 60px !important;
+  border-radius: 47%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.Hero_logado {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: #ff6200 !important;
+  margin-top: 93% !important;
+  margin-right: 100% !important;
+}
+
+.hero-hover {
+  color: #001aff !important;
+  font-weight: bold !important;
+}
+.hero-hover:hover {
+  color: white !important;
+  background-color: rgb(99, 97, 97) !important;
+  font-weight: bold !important;
 }

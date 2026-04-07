@@ -2,13 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #f1f1f1;
+  height: 76vh;
+  background-color: #f8fafc !important;
 
   mat-card {
     width: 400px;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #d9eafd;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3) !important;
     opacity: 0.8;
     border-radius: 25px;
   }

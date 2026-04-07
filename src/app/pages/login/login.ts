@@ -4,9 +4,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { PassowordField } from '../../shared/components/passoword-field/passoword-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 import {
   ReactiveFormsModule,
   FormGroup,
@@ -18,8 +18,7 @@ import { UserLoginPayload, UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-login',
@@ -35,26 +34,33 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatInputModule,
     ReactiveFormsModule,
 
-    MatButtonModule, MatDividerModule, MatIconModule
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class Login {
-  form: FormGroup<{email: FormControl<string>; senha: FormControl<string>}>;
+  form: FormGroup<{ email: FormControl<string>; senha: FormControl<string> }>;
   isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.form = this.formBuilder.group({
-      email: this.formBuilder.control ('', {validators: [Validators.required, Validators.email], nonNullable: true}),
-      senha: this.formBuilder.control ('', {validators: [Validators.required, Validators.minLength(6)], nonNullable: true}),
+      email: this.formBuilder.control('', {
+        validators: [Validators.required, Validators.email],
+        nonNullable: true,
+      }),
+      senha: this.formBuilder.control('', {
+        validators: [Validators.required, Validators.minLength(6)],
+        nonNullable: true,
+      }),
     });
   }
 
@@ -63,7 +69,7 @@ export class Login {
       this.router.navigate(['/tasks']);
     }
   }
-  
+
   get passowordControl(): FormControl {
     return this.form.get('senha') as FormControl;
   }
@@ -86,7 +92,7 @@ export class Login {
     }
 
     const formData = this.form.value as UserLoginPayload;
-    
+
     this.isLoading = true;
 
     this.userService
@@ -95,6 +101,12 @@ export class Login {
       .subscribe({
         next: (response) => {
           this.authService.saveToken(response);
+          this.userService.getUserEmail(response).subscribe({
+            next: (user) => {
+              this.authService.saveUser(user);
+            },
+          });
+
           this.router.navigate(['/tasks']);
         },
         error: (error) => {
