@@ -1,18 +1,49 @@
 <mat-toolbar class="app-top-menu">
-  <span class="app-logo"> 
-    <img routerLink="/" [src]="applogo" alt="Logo" class="logo-img">
-   </span>
-  <span class="spacer"></span>
-  
-       <a matButton>Serviços</a>
-      <a matButton>Contatos</a>
-   <span class="spacer"></span>
+  <span class="app-logo">
+    <img routerLink="/" [src]="applogo" alt="Logo" class="logo-img" />
+  </span>
 
-   <button matButton="filled" routerLink="/login" class="cadastro-btn" [disabled]= 'estanaRotaLogin()'>
-     Entre
+  @if (!estalogado) {
+    <span class="spacer"></span>
+    <a matButton>Serviços</a>
+    <a matButton>Contatos</a>
+    <span class="spacer"></span>
+
+    <button
+      matButton="filled"
+      routerLink="/login"
+      class="cadastro-btn"
+      [disabled]="estanaRotaLogin()"
+    >
+      Entre
     </button>
-   <button  matButton="filled" routerLink="/register" class="cadastro-btn" [disabled]= 'estaNaRotaRegister()'>
-    Cadastre-se
-   </button>
+    <button
+      matButton="filled"
+      routerLink="/register"
+      class="cadastro-btn"
+      [disabled]="estaNaRotaRegister()"
+    >
+      Cadastre-se
+    </button>
+  }
 
+  @if (estalogado) {
+    <span class="spacer"></span>
+    <span class="spacer"></span>
+    
+    <mat-card-header class="Hero_header_img">
+      <div
+        mat-card-avatar
+        [matMenuTriggerFor]="menu"
+        class="example-header-image Hero_card_img"
+      >
+      <mat-card-title class="Hero_logado">{{ estaLogado }}🟢</mat-card-title>
+    </div>
+
+      <mat-menu #menu="matMenu">
+        <button class="hero-hover" mat-menu-item>Perfil</button>
+        <button class="hero-hover" mat-menu-item (click)="logout()">Sair</button>
+      </mat-menu>
+    </mat-card-header>
+  }
 </mat-toolbar>
