@@ -38,12 +38,12 @@ import { AuthService } from '../../services/auth.service';
 
   templateUrl: './register.html',
   styleUrls: ['./register.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Register {
   // title = 'agendador-tarefas'
-  form: FormGroup;
+  form!: FormGroup;
   isLoading = false;
 
   constructor(

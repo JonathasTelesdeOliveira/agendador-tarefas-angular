@@ -1,10 +1,13 @@
 .app-top-menu {
-  min-height: 90px;
+  min-height: 100px;
 
   display: flex;
   flex-direction: space-between;
-  align-items: center;
+  align-items: center !important;
   background-color: #d9eafd !important;
+  font:
+    1.2rem 'Arial',
+    sans-serif !important;
 
   .spacer {
     flex: 1 1 auto;
@@ -16,16 +19,17 @@
   }
 
   .cadastro-btn {
-    background-color: #35d7ff;
-    color: white;
-    margin: 5px;
-    border-radius: 20px;
+    background-color: #35d7ff !important;
+    color: white !important;
+    margin: 6px;
+    border-radius: 30px;
+    padding: 0.2rem 1.5rem !important;
   }
 
   .cadastro-btn:hover {
-    background-color: #9aa6b2;
-    color: rgb(125, 83, 78) !important;
-    opacity: 0.8;
+    background-color: #9aa6b2 !important;
+    color: white !important;
+    opacity: 0.8 !important;
   }
 }
 
@@ -45,25 +49,30 @@
 }
 
 .Hero_header_img {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-right: 15px;
 
-.Hero_card_img {
-  height: 60px !important;
-  width: 60px !important;
-  border-radius: 47%;
-  object-fit: cover;
-  cursor: pointer;
-}
+  .Hero_title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #ff6200 !important;
+    text-align: center !important;
+    margin-top: 60px !important;
+  }
 
-.Hero_logado {
-  font-size: 16px !important;
-  font-weight: bold !important;
-  color: #ff6200 !important;
-  margin-top: 93% !important;
-  margin-right: 100% !important;
+  .Hero_card_img {
+    height: 60px !important;
+    width: 60px !important;
+    object-fit: cover !important;
+    cursor: pointer !important;
+  }
+  .emoji::before {
+    content: '\1F7E2' !important; /* círculo verde 🟢 */
+    font-size: 15px !important;
+  }
 }
 
 .hero-hover {

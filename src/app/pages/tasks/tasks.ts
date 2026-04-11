@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './tasks.html',
   styleUrl: './tasks.scss',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Tasks {
   imgUsuario = 'assets/usuario.svg';

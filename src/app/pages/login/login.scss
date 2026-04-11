@@ -4,6 +4,8 @@
   justify-content: center;
   height: 76vh;
   background-color: #f8fafc !important;
+    font:
+    1.2rem 'Arial', 'Helvetica', 'sans-serif' !important;
 
   mat-card {
     width: 400px;
@@ -76,7 +78,6 @@
 
     .button-2:hover {
       background-color: #9aa6b2;
-      // opacity: 0.8;
       color: #001aff;
       font-weight: bold;
       box-shadow: 0 1px 20px rgba(4, 24, 241, 0.8) !important;
