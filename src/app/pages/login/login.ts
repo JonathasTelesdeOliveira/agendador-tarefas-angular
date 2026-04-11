@@ -18,12 +18,11 @@ import { UserLoginPayload, UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @Component({
   selector: 'app-login',
   imports: [
-    MatProgressSpinnerModule,
     MatCardModule,
     MatButtonModule,
     MatSelectModule,
@@ -41,6 +40,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   templateUrl: './login.html',
   styleUrl: './login.scss',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Login {
   form: FormGroup<{ email: FormControl<string>; senha: FormControl<string> }>;

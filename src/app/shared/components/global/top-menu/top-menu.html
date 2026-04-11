@@ -37,11 +37,13 @@
         [matMenuTriggerFor]="menu"
         class="example-header-image Hero_card_img"
       >
-      <mat-card-title class="Hero_logado">{{ estaLogado }}🟢</mat-card-title>
+      <mat-card-title class="Hero_title">
+        <div class="Hero_div_logado emoji">{{ estaLogado }}</div>
+      </mat-card-title>
     </div>
 
       <mat-menu #menu="matMenu">
-        <button class="hero-hover" mat-menu-item>Perfil</button>
+        <button class="hero-hover" mat-menu-item routerLink="/perfil">Perfil</button>
         <button class="hero-hover" mat-menu-item (click)="logout()">Sair</button>
       </mat-menu>
     </mat-card-header>

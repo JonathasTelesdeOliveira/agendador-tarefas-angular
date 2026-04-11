@@ -1,0 +1,20 @@
+<mat-card class="hero-perfil-card">
+  
+    <mat-card-header>
+        <mat-card-title class="hero-perfil-text">Perfil do usuário</mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="profileForm" class="hero-form"> 
+        <mat-form-field class="hero-mat-form-field full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" />
+      </mat-form-field>
+      
+      <mat-form-field class="hero-mat-form-field full-width">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+    </form>
+    
+  
+</mat-card>
