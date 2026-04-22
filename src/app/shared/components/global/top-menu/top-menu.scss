@@ -1,13 +1,11 @@
 .app-top-menu {
-  min-height: 100px;
-
+  min-height: 80px;
   display: flex;
   flex-direction: space-between;
   align-items: center !important;
+  width: 100%;
+  align-items: center;
   background-color: #d9eafd !important;
-  font:
-    1.2rem 'Arial',
-    sans-serif !important;
 
   .spacer {
     flex: 1 1 auto;
@@ -36,51 +34,56 @@
 .app-logo {
   display: block;
   align-items: center;
+  padding-left: 10px;
+
+  .logo-img {
+    height: 60px;
+    width: auto;
+  }
 }
 
-.logo-img {
-  height: 80px;
-  width: auto;
-}
+.mat-mdc-card-header {
+  display: inline-block;
+  flex-direction: column;
 
-.example-header-image {
-  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-
-.Hero_header_img {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin-right: 15px;
-
-  .Hero_title {
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    color: #ff6200 !important;
-    text-align: center !important;
-    margin-top: 60px !important;
+  .example-header-image {
+    background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+    background-size: cover;
   }
 
   .Hero_card_img {
-    height: 60px !important;
-    width: 60px !important;
-    object-fit: cover !important;
-    cursor: pointer !important;
+    height: 50px !important;
+    width: 50px !important;
+    border-radius: 50%;
+    margin-bottom: 1px;
+    object-fit: cover;
   }
   .emoji::before {
     content: '\1F7E2' !important; /* círculo verde 🟢 */
     font-size: 15px !important;
   }
+  .Hero_title {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #ff6200 !important;
+    text-align: left !important;
+    justify-content: left !important;
+    min-height: 10px;
+  }
 }
 
 .hero-hover {
-  color: #001aff !important;
+  color: rgb(0, 26, 255) !important;
   font-weight: bold !important;
 }
+
 .hero-hover:hover {
-  color: white !important;
-  background-color: rgb(99, 97, 97) !important;
+  opacity: 0.8 !important;
   font-weight: bold !important;
+  box-shadow: 0 1px 10px rgb(1, 64, 210) !important;
 }
+
+.cdk-overlay-pane {
+  background-color: #d9eafd !important;
+}
+

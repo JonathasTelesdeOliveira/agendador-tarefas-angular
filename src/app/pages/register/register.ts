@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { PassowordField } from '../../shared/components/passoword-field/passoword-field';
@@ -39,7 +39,6 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './register.html',
   styleUrls: ['./register.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Register {
   // title = 'agendador-tarefas'

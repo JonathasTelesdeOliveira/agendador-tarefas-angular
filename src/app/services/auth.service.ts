@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { UserResponse } from './user.service';
 
 @Injectable({
@@ -6,9 +6,10 @@ import { UserResponse } from './user.service';
 })
 export class AuthService {
   private readonly TOKEN_KEY = 'auth_token';
-  private readonly User = 'logged_user';
+  private readonly USER = 'logged_user';
 
-  constructor() {}
+  
+
 
   saveToken(token: string): void {
     localStorage.setItem(this.TOKEN_KEY, token);
@@ -19,13 +20,14 @@ export class AuthService {
   }
 
   saveUser(user: UserResponse): void {
-    localStorage.setItem(this.User, JSON.stringify(user));
+    localStorage.setItem(this.USER, JSON.stringify(user));
   }
 
   getUser(): UserResponse | null {
-    const user = localStorage.getItem(this.User);
+    const user = localStorage.getItem(this.USER);
     if (!user) return null;
     return JSON.parse(user) as UserResponse;
+
   }
 
   isLoggedIn(): boolean {
@@ -34,6 +36,6 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.TOKEN_KEY);
-    localStorage.removeItem(this.User);
+    localStorage.removeItem(this.USER);
   }
 }

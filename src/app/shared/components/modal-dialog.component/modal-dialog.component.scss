@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+:root {
+  @include mat.dialog-overrides((
+    container-color: #d9eafd,
+    subhead-color: rgb(77, 76, 76),
+  ));
+}
+
+.hero-tile {
+  box-shadow: 0 1px 10px rgb(173, 209, 251) !important;
+  font-size: 1.5rem !important;
+  font-weight: bold  !important;
+  opacity: 0.9 !important;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: rgb(173, 209, 251) !important;
+  border-radius: 10px !important;
+}
+
+mat-label{
+  font-weight: bold !important;
+}

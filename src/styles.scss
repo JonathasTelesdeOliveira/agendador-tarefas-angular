@@ -1,22 +1,46 @@
-html, body {
+html,
+body {
   height: 100%;
 }
 
-body{
-      margin: 0; font-family: Roboto, "Helvetic Neue", sans-serif;
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+
+  font-size: 1.2rem;
+  font-style: normal;
+
+  h1 {
+    font-weight: 600;
+  }
+  h2 {
+    font-weight: 500;
+  }
+  h3 {
+    padding-bottom: 0px;
+  }
+  p {
+    font-weight: 400;
+  }
+  small {
+    font-style: italic;
+  }
+}
+
+main {
+  min-height: 100vh;
 }
 
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
-.padding-p{
+.padding-p {
   padding: 8px !important;
 }
-.padding-m{
+.padding-m {
   padding: 16px !important;
 }
-.padding-g{
+.padding-g {
   padding: 24px !important;
 }
- 

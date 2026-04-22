@@ -3,17 +3,23 @@
   align-items: center;
   justify-content: center;
   height: 76vh;
-  background-color: #f8fafc !important;
-  font:
-    1.2rem 'Arial', 'Helvetica', 'sans-serif' !important;
 
   mat-card {
     width: 400px;
     padding: 20px;
-    background-color: #d9eafd;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3) !important;
-    opacity: 0.8;
-    border-radius: 25px;
+
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    min-width: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mat-mdc-card-header {
+    justify-content: center;
+    text-align: center !important;
+    font-size: 24px !important;
   }
 
   .mat-mdc-card-header {
@@ -35,12 +41,13 @@
   }
 
   .mdc-text-field {
-    background-color: #adc6f2 !important;
-    border-radius: 25px;
+    border-radius: 16px !important;
+    box-shadow: 0 1px 10px rgb(4, 7, 11) !important;
+    border-radius: 20px;
   }
 
   .mdc-text-field:hover {
-    background-color: #91b6f7 !important ;
+    background-color: white !important ;
   }
 
   .mat-mdc-raised-button:hover {
@@ -76,14 +83,17 @@
     align-items: center;
 
     .button-2 {
-      background-color: #001aff;
+      background-color: #1e293b;
       color: white;
-      border-radius: 30px;
+      border-radius: 20px;
+      box-shadow: 0 1px 10px rgb(4, 7, 11);
+      transition: all 0.3s ease;
     }
 
     .button-2:hover {
-      background-color: #222aff !important;
-      opacity: 0.8;
+      background-color: #334155;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+      transform: translateY(-2px);
     }
   }
 }
