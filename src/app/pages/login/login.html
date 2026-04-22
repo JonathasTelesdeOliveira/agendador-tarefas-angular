@@ -1,7 +1,13 @@
 <div class="login">
   <mat-card>
-    <mat-card-header class="padding-m">
-      <mat-card-title>Login</mat-card-title><br />
+    <mat-card-header class="padding-p">
+      <mat-card-title>
+        <p>
+          Você deve efturar o<br />
+          Login<br />
+          ou estar conectado.
+        </p>
+      </mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
@@ -27,7 +33,8 @@
           (click)="submit()"
           type="submit"
           matButton="tonal"
-        >{{ isLoading ? 'Logando...' : 'Entrar' }}
+        >
+          {{ isLoading ? 'Logando...' : 'Entrar' }}
         </button>
       </div>
     </section>

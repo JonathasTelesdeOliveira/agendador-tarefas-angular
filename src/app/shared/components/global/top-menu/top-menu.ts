@@ -36,10 +36,11 @@ export class TopMenu implements OnInit, OnDestroy {
   private userService = inject(UserService);
   private route = inject(Router);
 
+
   ngOnInit(): void {
-    this.inscricaoptRota = this.routerStateService.rotaAtual$.subscribe((url) => {
+    this.inscricaoptRota = this.routerStateService.rotaAtual$.subscribe(url => {
       this.rotaAtual = url;
-    });
+    })
   }
 
   ngOnDestroy(): void {
@@ -59,13 +60,14 @@ export class TopMenu implements OnInit, OnDestroy {
 
   logout(): void {
     this.authService.logout();
-    this.route.navigate(['']);
+    this.route.navigate(['/login']);
   }
 
-  get estaLogado(): string {
+  logadoUsuario(): string {
     const user = this.userService.getUser();
     if (user && user.nome) {
-      return user.nome.toUpperCase();
+      const nome = user.nome.toUpperCase();
+      return nome;
     }
     return 'indisponível';
   }

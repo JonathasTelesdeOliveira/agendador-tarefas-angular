@@ -1,44 +1,99 @@
-.hero-perfil-card {
-    max-width: 600px;
-    margin: 2.5rem auto ;
-    padding: 2rem;
-    font-size: 1.2rem;
-     background-color: #d9eafd !important;
-     opacity: 0.7 !important;
-    border-radius: 18px !important;
-    font-family: Verdana, Tahoma, sans-serif;
-    box-shadow: 0 1px 10px rgba(173, 209, 251) !important;
+.perfil {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-size: 1.2rem;
 
+  mat-card {
+    width: 400px;
+    padding: 20px;
+    height: auto;
 
-    .hero-perfil-text {
-        padding: 1rem;
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 2px;
+
+    min-width: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .mat-mdc-card-header {
+      justify-content: center;
+      text-align: center !important;
+      font-size: 24px !important;
     }
+  }
 
-    .hero-mat-form-field{
-        background-color: rgb(173, 209, 251) !important;
-        border-radius: 10px !important;
-    }
-    .mat-mdc-form-field-subscript-wrapper {
-         background-color: #d9eafd !important;
-    }
+  .mdc-text-field {
+    border-radius: 2px !important;
+    box-shadow: 0 1px 2px rgb(86, 87, 88) !important;
+    border-radius: 20px;
+  }
 
-}
-
-
+  .mdc-text-field:hover {
+    background-color: white !important ;
+  }
 
 
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: rgb(227, 225, 225);
-}
+  .hero-header {
+    padding: 0px !important;
+    margin: 0px !important;
+  }
 
-.form {
-  background-color: rgb(230, 230, 230);
-  opacity: 0.9 !important;
-}
+  .item-wrapper {
+    border-radius: 2px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  }
 
-.mat-form-field {
+  .mdc-line-ripple {
+    display: none !important;
+  }
+
+  // .form {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: flex-start;
+  //   background-color: rgb(227, 225, 225);
+
+  // }
+
+  .mat-form-field {
     max-width: 100% !important;
+  }
+
+  mat-card-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 52px;
+    padding: 8px;
+
+    .button-mat-card-actions {
+      background-color: #001aff;
+      color: #eef2f7;
+      border-radius: 30px;
+    }
+
+    .button-mat-card-actions:hover {
+      color: #eef2f7;
+      font-weight: bold;
+      box-shadow: 0 px 0.5px rgba(4, 24, 241, 0.8) !important;
+    }
+  }
+
+  .item-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .item-text {
+      flex: 1;
+      min-width: none !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

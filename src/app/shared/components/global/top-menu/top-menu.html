@@ -1,4 +1,4 @@
-<mat-toolbar class="app-top-menu">
+<div class="app-top-menu">
   <span class="app-logo">
     <img routerLink="/" [src]="applogo" alt="Logo" class="logo-img" />
   </span>
@@ -30,22 +30,29 @@
   @if (estalogado) {
     <span class="spacer"></span>
     <span class="spacer"></span>
-    
-    <mat-card-header class="Hero_header_img">
-      <div
-        mat-card-avatar
-        [matMenuTriggerFor]="menu"
-        class="example-header-image Hero_card_img"
-      >
-      <mat-card-title class="Hero_title">
-        <div class="Hero_div_logado emoji">{{ estaLogado }}</div>
-      </mat-card-title>
-    </div>
+
+    <mat-card-header>
+      <div class="example-header-image Hero_card_img"></div>
+
+      <div class="hero_emoji_title">
+        <mat-card-title class="Hero_title">
+          <div>
+            {{ logadoUsuario() }}
+            <mat-icon [matMenuTriggerFor]="menu" class="hero_mat-icon"
+              >arrow_drop_down_circle</mat-icon
+            >
+            
+          </div>
+        </mat-card-title>
+      </div>
 
       <mat-menu #menu="matMenu">
-        <button class="hero-hover" mat-menu-item routerLink="/perfil">Perfil</button>
-        <button class="hero-hover" mat-menu-item (click)="logout()">Sair</button>
+        <button class="hero-hover" mat-menu-item routerLink="/perfil">
+          <mat-icon>account_circle</mat-icon>
+          Perfil</button>
+        <button class="hero-hover" mat-menu-item (click)="logout()"> 
+          <mat-icon>logout</mat-icon>Sair</button>
       </mat-menu>
     </mat-card-header>
   }
-</mat-toolbar>
+</div>

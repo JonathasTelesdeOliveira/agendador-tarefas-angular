@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { PassowordField } from '../../shared/components/passoword-field/passoword-field';
@@ -18,7 +18,6 @@ import { UserLoginPayload, UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
-
 
 @Component({
   selector: 'app-login',
@@ -40,7 +39,6 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.html',
   styleUrl: './login.scss',
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Login {
   form: FormGroup<{ email: FormControl<string>; senha: FormControl<string> }>;
@@ -92,7 +90,6 @@ export class Login {
     }
 
     const formData = this.form.value as UserLoginPayload;
-
     this.isLoading = true;
 
     this.userService
@@ -100,13 +97,12 @@ export class Login {
       .pipe(finalize(() => (this.isLoading = false)))
       .subscribe({
         next: (response) => {
-          this.authService.saveToken(response);
+          this.authService.saveToken(response)
           this.userService.getUserEmail(response).subscribe({
             next: (user) => {
               this.authService.saveUser(user);
             },
           });
-
           this.router.navigate(['/tasks']);
         },
         error: (error) => {

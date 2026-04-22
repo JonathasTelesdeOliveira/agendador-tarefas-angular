@@ -1,34 +1,39 @@
 <div class="register">
   <mat-card>
     <mat-card-header class="padding-m">
-      <mat-card-title>Cadastro de usuário</mat-card-title><br />
+      <mat-card-title>
+        <p>
+          Para continuar você deve <br/>se registrar<br/>
+          ou estar conectado.
+        </p> 
+      </mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
       <form [formGroup]="form">
-
         <mat-form-field class="full-width">
           <mat-label>Nome</mat-label>
           <input matInput formControlName="nome" placeholder="Digite seu Nome Completo" />
-          @if(nomeError){
-            <mat-error>{{nomeError}}</mat-error>
+          @if (nomeError) {
+            <mat-error>{{ nomeError }}</mat-error>
           }
-     
         </mat-form-field>
         <mat-form-field class="full-width">
           <mat-label>Email</mat-label>
           <input matInput formControlName="email" placeholder="Digite seu email" />
-          @if(emailError) {<mat-error>{{emailError}}</mat-error>}
+          @if (emailError) {
+            <mat-error>{{ emailError }}</mat-error>
+          }
         </mat-form-field>
 
-
-        <input-passoword-field [control]="passowordControl" [placeholder]="'Cadastre a sua senha'"></input-passoword-field>
-
+        <input-passoword-field
+          [control]="passowordControl"
+          [placeholder]="'Cadastre a sua senha'"
+        ></input-passoword-field>
       </form>
-    
     </mat-card-content>
 
-<mat-divider />
+    <mat-divider />
     <section>
       <div>
         <button
@@ -37,12 +42,11 @@
           (click)="submit()"
           type="submit"
           matButton="tonal"
-        >{{ isLoading ? 'Cadastrando...' : 'Cadastrar' }}
+        >
+          {{ isLoading ? 'Cadastrando...' : 'Cadastrar' }}
         </button>
       </div>
     </section>
     <mat-divider />
-      
-      
   </mat-card>
 </div>

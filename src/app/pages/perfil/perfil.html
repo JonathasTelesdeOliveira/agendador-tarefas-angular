@@ -1,20 +1,87 @@
-<mat-card class="hero-perfil-card">
-  
-    <mat-card-header>
-        <mat-card-title class="hero-perfil-text">Perfil do usuário</mat-card-title>
+<div class="perfil">
+  <mat-card>
+    <mat-card-header class="padding-p">
+      <mat-card-title class="hero-text-card"> <p>Perfil do usuário</p></mat-card-title>
     </mat-card-header>
 
-    <form [formGroup]="profileForm" class="hero-form"> 
-        <mat-form-field class="hero-mat-form-field full-width">
+    <form [formGroup]="profileForm" class="hero-form">
+      <mat-form-field class="hero-mat-form-field full-width">
         <mat-label>Nome</mat-label>
         <input matInput formControlName="nome" />
       </mat-form-field>
-      
+
       <mat-form-field class="hero-mat-form-field full-width">
         <mat-label>E-mail</mat-label>
         <input matInput formControlName="email" />
       </mat-form-field>
+
+      <h3 class="section-title">Endereços:</h3>
+
+      <mat-list class="full-width">
+        @for (end of user()?.enderecos ?? []; track end.id) {
+          <div class="item-wrapper">
+            <div class="item-text">
+              <mat-list-item
+                [matTooltip]="`
+                    ${end.rua}, 
+                    ${end.numero},
+                    ${end.complemento ? `${end.complemento},` : ''}
+                    ${end.cidade}, 
+                    ${end.estado},
+                    ${end.cep}`"
+                [matTooltipPosition]="'above'"
+              >
+                {{ end.cep }}, {{ end.rua }}, {{ end.numero }},
+                @if (end.complemento) {
+                  <span>{{ end.complemento }}</span>
+                }
+                {{ end.cidade }}, {{ end.estado }}
+              </mat-list-item>
+            </div>
+
+            <div class="mat_icon">
+              <button matIconButton (click)="editarEndereco(end)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button matIconButton>
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        }
+      </mat-list>
+
+      <mat-card-actions>
+        <button matButton class="button-mat-card-actions" (click)="cadastrarEndereco()">
+          Cadastrar-Endereço
+        </button>
+      </mat-card-actions>
+
+      <h3 class="section-title">Telefones:</h3>
+
+      <mat-list class="full-width">
+        @for (tel of user()?.telefones ?? []; track tel.numero) {
+          <div class="item-wrapper">
+            <div class="item-text">
+              <mat-list-item> {{ tel.ddd }} {{ tel.numero }} </mat-list-item>
+            </div>
+            <div class="mat_icon">
+              <button matIconButton (click)="editarTelefone(tel)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button matIconButton>
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        }
+      </mat-list>
+
+      <mat-card-actions>
+        <button matButton class="button-mat-card-actions" (click)="cadastrarTelefone()">
+          Cadastrar Telefone
+        </button>
+      </mat-card-actions>
     </form>
-    
-  
-</mat-card>
+  </mat-card>
+</div>
