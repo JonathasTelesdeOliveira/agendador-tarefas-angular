@@ -3,20 +3,19 @@ import { Injectable, signal } from '@angular/core';
 import { Observable, switchMap, tap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from './auth.service';
-import { readonly } from '@angular/forms/signals';
-import { catchError, throwError } from 'rxjs';
 
 interface UserRegisterPayload {
   nome: string;
   email: string;
   senha: string;
   enderecos?: {
+    cep: string;
     rua: string;
     numero: number;
     complemento: string;
     cidade: string;
     estado: string;
-    cep: string;
+    uf: string;
   }[];
   telefones?: {
     numero: string;
@@ -36,6 +35,7 @@ export interface UserResponse {
         complemento: string;
         cidade: string;
         estado: string;
+        uf: string;
       }[]
     | null;
   telefones:
@@ -83,7 +83,7 @@ export class UserService {
     });
   }
 
-   getEmailFromToken(token: string): string | null {
+  getEmailFromToken(token: string): string | null {
     try {
       const decodedToken = this.jwtHelper.decodeToken(token);
       return decodedToken?.sub || null;
@@ -96,26 +96,53 @@ export class UserService {
     const email = this.getEmailFromToken(token);
     if (!email) throw new Error('Token Inválido');
     const headers = new HttpHeaders({ Authorization: `${token}` });
-    return this.http.get<UserResponse>(`${this.apiUrl}/usuario?email=${email}`, { headers }).pipe(
-      tap(user => this.setUser(user))
+    return this.http
+      .get<UserResponse>(`${this.apiUrl}/usuario?email=${email}`, { headers })
+      .pipe(tap((user) => this.setUser(user)));
+  }
 
+  deleteEnderecoUser(id: number, token: string): Observable<UserResponse> {
+    const email = this.getEmailFromToken(token);
+    if (!email) throw new Error('Token Inválido');
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+
+    return this.http.delete<void>(`${this.apiUrl}/usuario/enderecos/${id}`, { headers }).pipe(
+      switchMap(() => this.getUserEmail(token)),
+      tap((user) => {this.setUser(user)
+        this.authService.saveUser(user)
+      }),
     );
   }
 
-    deleteUserByEmail(token: string): Observable<void> {
-      const email = this.getEmailFromToken(token)
-      if (!email) throw new Error('Token Inválido');
-      const headers = new HttpHeaders({ Authorization: `${token}` })
-      return this.http.delete<void>(`${this.apiUrl}/usuario/${email}`, { headers })
-      .pipe(tap(() => this.setUser(null)
-         )
-      );  
-      
+    deleteTelefoneUser(id: number, token: string): Observable<UserResponse> {
+    const email = this.getEmailFromToken(token);
+    if (!email) throw new Error('Token Inválido');
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+
+    return this.http.delete<void>(`${this.apiUrl}/usuario/telefones/${id}`, { headers }).pipe(
+      switchMap(() => this.getUserEmail(token)),
+      tap((user) => {this.setUser(user)
+        this.authService.saveUser(user)
+      }),
+    );
+  }
 
 
-    }
-    
- 
+
+
+  // Todo: Fazer uma tela de admin com todos os Usuarios
+  deleteUserByEmail(token: string): Observable<UserResponse> {
+    const email = this.getEmailFromToken(token);
+    if (!email) throw new Error('Token Inválido');
+    const headers = new HttpHeaders({ Authorization: `${token}` });
+    return this.http.delete<void>(`${this.apiUrl}/usuario/${email}`, { headers }).pipe(
+      switchMap(() => this.getUserEmail(token)),
+        tap((user) => {this.setUser(null)
+             this.authService.saveUser(user)
+      }),
+    );
+  }
+
   savePhoneUser(body: { numero: string; ddd: string }, token: string): Observable<any> {
     const headers = new HttpHeaders({ Authorization: `${token}` });
 
@@ -155,6 +182,7 @@ export class UserService {
       complemento: string;
       cidade: string;
       estado: string;
+      uf: string;
     },
     token: string,
   ): Observable<any> {
@@ -178,6 +206,7 @@ export class UserService {
       complemento: string;
       cidade: string;
       estado: string;
+      uf: string;
     },
     token: string,
   ): Observable<any> {
@@ -203,6 +232,6 @@ export class UserService {
   }
 
   setUser(data: UserResponse | null): void {
-    this._user.set(data)
+    this._user.set(data);
   }
 }

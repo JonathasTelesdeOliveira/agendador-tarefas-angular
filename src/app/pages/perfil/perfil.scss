@@ -5,7 +5,7 @@
   font-size: 1.2rem;
 
   mat-card {
-    width: 400px;
+    max-width: 450px;
     padding: 20px;
     height: auto;
 
@@ -33,7 +33,6 @@
   .mdc-text-field:hover {
     background-color: white !important ;
   }
-
 
   .hero-header {
     padding: 0px !important;
@@ -83,15 +82,29 @@
     }
   }
 
+  .mat_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+    }
+    .mat_icon button {
+      padding: 0 !important;
+      min-width: 0 !important;
+    }
+  }
   .item-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     .item-text {
       flex: 1;
       min-width: none !important;
-      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
