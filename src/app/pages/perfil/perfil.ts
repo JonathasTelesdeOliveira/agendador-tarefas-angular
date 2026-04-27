@@ -3,17 +3,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-  FormBuilder,
-  ReactiveFormsModule,
-  FormsModule,
-  Validators
-} from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
 
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {
   DialogField,
-  ModalDialogComponent
+  ModalDialogComponent,
 } from '../../shared/components/modal-dialog.component/modal-dialog.component';
 import { AuthService } from '../../services/auth.service';
 import { MatListModule } from '@angular/material/list';
@@ -51,6 +46,20 @@ export class Perfil {
     email: [{ value: this.user()?.email || '', disabled: true }],
   });
 
+  buscaPeloCep(cep: string, dialogRef: MatDialogRef<ModalDialogComponent, any>) {
+    this.userService.getEndByCep(cep).subscribe({
+      next: (response) => {
+        dialogRef.componentInstance.form.patchValue({
+          rua: response.logradouro,
+          cidade: response.localidade,
+          estado: response.estado,
+          uf: response.uf,
+        });
+      },
+      error: () => console.warn('Cep não enocontrado.'),
+    });
+  }
+
   cadastrarEndereco(): void {
     const token = this.authService.getToken();
     if (!token) return;
@@ -59,8 +68,7 @@ export class Perfil {
       {
         name: 'cep',
         label: 'CEP',
-        button: { icon: 'search', 
-        callback: (cep: string) => this.buscaPeloCep(cep, dialogRef) },
+        button: { icon: 'search', callback: (cep: string) => this.buscaPeloCep(cep, dialogRef) },
         validators: [Validators.required],
       },
       { name: 'rua', label: 'Rua' },
@@ -68,6 +76,7 @@ export class Perfil {
       { name: 'complemento', label: 'Complemento' },
       { name: 'cidade', label: 'Cidade' },
       { name: 'estado', label: 'Estado' },
+      { name: 'uf', label: 'Uf' },
     ];
 
     const dialogRef = this.dialog.open(ModalDialogComponent, {
@@ -93,6 +102,7 @@ export class Perfil {
     complemento: string;
     cidade: string;
     estado: string;
+    uf: string;
   }) {
     const token = this.authService.getToken();
     if (!token) return;
@@ -102,8 +112,7 @@ export class Perfil {
         name: 'cep',
         label: 'CEP',
         value: endereco.cep,
-        button: { icon: 'search', 
-        callback: (cep: string) => this.buscaPeloCep(cep, dialogRef) },
+        button: { icon: 'search', callback: (cep: string) => this.buscaPeloCep(cep, dialogRef) },
         validators: [Validators.required],
       },
       { name: 'rua', label: 'Rua', value: endereco.rua },
@@ -111,6 +120,7 @@ export class Perfil {
       { name: 'complemento', label: 'Complemento', value: endereco.complemento },
       { name: 'cidade', label: 'Cidade', value: endereco.cidade },
       { name: 'estado', label: 'Estado', value: endereco.estado },
+      { name: 'uf', label: 'Uf', value: endereco.uf },
     ];
 
     const dialogRef = this.dialog.open(ModalDialogComponent, {
@@ -127,20 +137,14 @@ export class Perfil {
     });
   }
 
-  buscaPeloCep(cep: string, dialogRef: MatDialogRef<ModalDialogComponent, any>) {
-    this.userService.getEndByCep(cep).subscribe({
-      next: (response) => {
-        dialogRef.componentInstance.form.patchValue({
-          rua: response.logradouro,
-          cidade: response.localidade,
-          estado: response.uf
-        });
-      },
-        error: () => console.warn('Cep não enocontrado.')
-    })
+  deletarEndereco(endereco: { id: number }) {
+    const token = this.authService.getToken();
+    if (!token) return;
+    return this.userService.deleteEnderecoUser(endereco.id, token).subscribe({
+      next: () => console.log('Telefone cadastrado com sucesso:'),
+      error: () => console.log('Erro ao cadastrar telefone:'),
+    });
   }
-
-
 
   cadastrarTelefone(): void {
     const token = this.authService.getToken();
@@ -190,6 +194,15 @@ export class Perfil {
           error: () => console.log('Erro ao editrar telefone:', result),
         });
       }
+    });
+  }
+
+    deletarTelefone(telefone: { id: number }) {
+    const token = this.authService.getToken();
+    if (!token) return;
+    return this.userService.deleteTelefoneUser(telefone.id, token).subscribe({
+      next: () => console.log('Telefone deletado com sucesso:'),
+      error: () => console.log('Erro ao deletar telefone:'),
     });
   }
 }
