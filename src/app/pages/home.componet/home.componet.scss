@@ -15,6 +15,97 @@
   }
 }
 
+
+
+// ===================================================
+
+
+/* =============================
+   TOPO - LADO A LADO
+============================= */
+.mat-card-superior {
+  display: flex !important;
+  flex-direction: row !important; /* Força a ficar na mesma linha */
+  justify-content: space-between; /* Empurra um para cada lado */
+  align-items: center; /* Alinha os dois verticalmente ao centro */
+  width: 100%;
+  padding: 32px;
+  box-sizing: border-box; /* Impede que o padding aumente o tamanho total */
+  gap: 32px;
+  flex-wrap: nowrap !important; /* PROÍBE a quebra de linha */
+  height: 35vh;
+}
+
+.top-left {
+  flex: 1; /* Faz o texto ocupar todo o espaço livre restante */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Garante que o texto fique alinhado à esquerda */
+  text-align: left;
+}
+
+
+
+.grid-servicos-topo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espaço entre o título e o parágrafo */
+}
+
+.grid-servicos-topo h1 {
+  margin: 0;
+}
+
+app-tasks {
+  /* Flex: grow(0) shrink(0) basis(380px) */
+  flex: 0 0 380px !important; /* Crava o tamanho do agendador e impede que ele encolha */
+  width: 380px !important;
+  margin: 0 !important;
+}
+
+/* =============================
+   Responsividade para Celular
+============================= */
+@media (max-width: 900px) {
+  .mat-card-superior {
+    flex-direction: column !important; /* Em telas menores, quebra propositalmente para não espremer */
+    align-items: center;
+    text-align: center;
+  }
+  
+  .top-left {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+}
+
+
+.task-section {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  height: 45vh;
+}
+/* =============================
+   CONTAINER
+============================= */
+.conteiner-main {
+  padding-left: 16px;
+ 
+}
+
+.top-left {
+  flex: 1;
+}
 /* =============================
    LAYOUT BASE
 ============================= */
@@ -32,12 +123,7 @@
   background-color: rgb(178, 179, 187);
 }
 
-/* =============================
-   CONTAINER
-============================= */
-.conteiner-main {
-  padding-left: 16px;
-}
+
 
 
 /* =============================

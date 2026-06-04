@@ -1,8 +1,8 @@
 <!-- Todo: este extra largo ocuparia em cima:    -->
 <div class="page-home">
-<mat-card appearance="outlined">
-  <mat-card class="mat-card-superior" appearance="outlined">
-    <div class="conteiner-main">
+<div class="top-container">
+  <div class="mat-card-superior">
+    <div class="top-left">
       <div class="grid-servicos-topo">
         <h1>Sua cidade Melhor <br />Começa por você.</h1>
 
@@ -15,10 +15,14 @@
       <section>
         <button matButton class="button">+ Cadastrar nova soçicitação</button>
       </section>
+     
     </div>
-  </mat-card>
-  <span class="spacer"></span>
-</mat-card>
+    <span class="spacer"></span>
+  <app-tasks />
+
+  </div>
+</div>
+
 
 <!-- Todo: Fim do Topo -->
 
@@ -30,7 +34,7 @@
     <div class="grid-servicos">
       <mat-card class="servico-card card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+          <img src="{{linkBrasaoPassos}}" />
 
           <div class="hero-titulo">
             <h4>Iluminação Pública</h4>
@@ -46,7 +50,7 @@
 
       <mat-card class="servico-card card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+          <img src="{{linkBrasaoPassos}}" />
 
           <div class="hero-titulo">
             <h4>Infraestrutura Urbana</h4>
@@ -62,7 +66,7 @@
 
       <mat-card class="servico-card card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+           <img src="{{linkBrasaoPassos}}" />
 
           <div class="hero-titulo">
             <h4>Limpeza Urbana</h4>
@@ -78,10 +82,10 @@
 
       <mat-card class="servico-card card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+          <img src="{{linkBrasaoPassos}}" />
 
           <div class="hero-titulo">
-            <h4>LMobilidade Urbana</h4>
+            <h4>Mobilidade Urbana</h4>
             <span
               >Semáfaros, faixas, pontos<br />
               de ônibus, acessibilidade.</span
@@ -96,14 +100,14 @@
 
       <mat-card class="servico-card card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+          <img src="{{linkBrasaoPassos}}" />
 
           <div class="hero-titulo">
-            <h4>Mobilidade Urbana</h4>
+            <h4>Coleta Seletiva</h4>
             <span
-              >semáfaro faixas,<br />
-              pontos de ônibus,<br />
-              acessibilidade</span
+              >Dias de coleta,<br />
+              atividade na Cidade,<br />
+              pesquise seu setor</span
             >
 
             <div class="contein-spam-icon">Solicitar → <mat-icon>offline_bolt</mat-icon></div>
@@ -113,7 +117,7 @@
 
       <mat-card class="servico-card card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+          <img src="{{linkBrasaoPassos}}" />
 
           <div class="hero-titulo">
             <h4>Segurança Urbana</h4>
@@ -129,7 +133,7 @@
 
       <mat-card class="servico-card card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+          <img src="{{linkBrasaoPassos}}" />
 
           <div class="hero-titulo">
             <h4>Saúde</h4>
@@ -145,7 +149,7 @@
 
       <mat-card class="servico-card card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+          <img src="{{linkBrasaoPassos}}"/>
 
           <div class="hero-titulo">
             <h4>Outros Serviços</h4>
@@ -167,8 +171,7 @@
       <div class="grid-servicos">
         <mat-card class="card-ui">
           <div class="hero-top">
-            <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
-
+             <mat-icon>app_registration</mat-icon>
             <div class="hero-titulo">
               <h4>1. Registre</h4>
               <span
@@ -180,8 +183,7 @@
 
         <mat-card class="card-ui">
           <div class="hero-top">
-            <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
-
+            <mat-icon>send</mat-icon>
             <div class="hero-titulo">
               <h4>2. Envie</h4>
               <span
@@ -195,8 +197,7 @@
 
         <mat-card class="card-ui">
           <div class="hero-top">
-            <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
-
+            <mat-icon>monitoring</mat-icon>
             <div class="hero-titulo">
               <h4>3. Acompanhe</h4>
               <span>Acompanhe o status de<br />
@@ -209,8 +210,7 @@
 
          <mat-card class="card-ui">
           <div class="hero-top">
-            <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
-
+            <mat-icon>task_alt</mat-icon>
             <div class="hero-titulo">
               <h4>4. Resolução</h4>
               <span>O problema será<br />
@@ -229,21 +229,20 @@
 
       <mat-card class="card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+          <mat-icon>delete</mat-icon>
 
           <div class="hero-titulo">
-            <h4>Iluminação</h4>
-            <span>Lâmpada queimada</span>
+            <h4>Coleta Seletiva</h4>
+            <span>Dia da Coleta</span>
           </div>
         </div>
       </mat-card>
 
       <mat-card class="card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
-
+        <mat-icon>delete</mat-icon>
           <div class="hero-titulo">
-            <h4>Limpeza</h4>
+            <h4>Limpeza Urbana</h4>
             <span>Lixo acumulado</span>
           </div>
         </div>
@@ -255,8 +254,7 @@
 
       <mat-card class="card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
-
+          <mat-icon>lightbulb</mat-icon>
           <div class="hero-titulo">
             <h4>Iluminação</h4>
             <span>Lâmpada queimada</span>
@@ -266,11 +264,11 @@
 
       <mat-card class="card-ui">
         <div class="hero-top">
-          <img src="https://material.angular.dev/assets/img/examples/shiba2.jpg" />
+          <mat-icon>local_hospital</mat-icon>
 
           <div class="hero-titulo">
-            <h4>Limpeza</h4>
-            <span>Lixo acumulado</span>
+            <h4>Saúde</h4>
+            <span>Semana da Vacina</span>
           </div>
         </div>
       </mat-card>
