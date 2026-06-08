@@ -12,29 +12,32 @@
           segura e organizada para todos.
         </p>
       </div>
-      <section>
-        <button matButton class="button">+ Cadastrar nova soçicitação</button>
-      </section>
+      
+    <section class="button-container">
+      <button matButton class="button">+ Cadastrar nova soçicitação</button>
+    </section>
      
     </div>
     <span class="spacer"></span>
-  <app-tasks />
+    <div class="top-left">
+      <app-tasks></app-tasks>
+    </div>
 
   </div>
 </div>
-
-
 <!-- Todo: Fim do Topo -->
 
 <!-- Todo: 1° de 4 ->>>>>>>>>>>>>>>>>> -->
 
-<div class="layout home">
-  <div class="conteiner-main">
-    <h2>Serviços disponíveis</h2>
-    <div class="grid-servicos">
-      <mat-card class="servico-card card-ui">
+<div class="layout">
+  <div class="layout-conteiner">
+    <h4 class="alerta">Serviços disponíveis</h4>
+    <div class="grid-servicos" style="background-color: rgb(101, 101, 100);">
+      
+      <div class="servico-card card-ui">
         <div class="hero-top">
-          <img src="{{linkBrasaoPassos}}" />
+           <mat-icon>lightbulb</mat-icon>
+
 
           <div class="hero-titulo">
             <h4>Iluminação Pública</h4>
@@ -43,14 +46,14 @@
               pontos de iluminaçção.</span
             >
 
-            <div class="contein-spam-icon">Solicitar → <mat-icon>offline_bolt</mat-icon></div>
+            <div class="contein-spam-icon">Como Solicitar → <mat-icon>offline_bolt</mat-icon></div>
           </div>
         </div>
-      </mat-card>
+      </div>
 
-      <mat-card class="servico-card card-ui">
+      <div class="servico-card card-ui">
         <div class="hero-top">
-          <img src="{{linkBrasaoPassos}}" />
+          <mat-icon>construction</mat-icon>
 
           <div class="hero-titulo">
             <h4>Infraestrutura Urbana</h4>
@@ -59,14 +62,14 @@
               pbueiros, sinalização.</span
             >
 
-            <div class="contein-spam-icon">Solicitar → <mat-icon>offline_bolt</mat-icon></div>
+            <div class="contein-spam-icon">Como Solicitar → <mat-icon>offline_bolt</mat-icon></div>
           </div>
         </div>
-      </mat-card>
+      </div>
 
-      <mat-card class="servico-card card-ui">
+      <div class="servico-card card-ui">
         <div class="hero-top">
-           <img src="{{linkBrasaoPassos}}" />
+           <mat-icon>delete</mat-icon>
 
           <div class="hero-titulo">
             <h4>Limpeza Urbana</h4>
@@ -75,14 +78,14 @@
               coleta, descarte irregular.</span
             >
 
-            <div class="contein-spam-icon">Solicitar → <mat-icon>offline_bolt</mat-icon></div>
+            <div class="contein-spam-icon">Como Solicitar → <mat-icon>offline_bolt</mat-icon></div>
           </div>
         </div>
-      </mat-card>
+      </div>
 
-      <mat-card class="servico-card card-ui">
+      <div class="servico-card card-ui">
         <div class="hero-top">
-          <img src="{{linkBrasaoPassos}}" />
+          <mat-icon>traffic</mat-icon>
 
           <div class="hero-titulo">
             <h4>Mobilidade Urbana</h4>
@@ -91,17 +94,16 @@
               de ônibus, acessibilidade.</span
             >
 
-            <div class="contein-spam-icon">Solicitar → <mat-icon>offline_bolt</mat-icon></div>
+            <div class="contein-spam-icon">Como Solicitar → <mat-icon>offline_bolt</mat-icon></div>
           </div>
         </div>
-      </mat-card>
+      </div>
 
       <!-- 2° de 4 ################ -->
 
-      <mat-card class="servico-card card-ui">
+      <div class="servico-card card-ui">
         <div class="hero-top">
-          <img src="{{linkBrasaoPassos}}" />
-
+         <mat-icon>recycling</mat-icon>
           <div class="hero-titulo">
             <h4>Coleta Seletiva</h4>
             <span
@@ -110,14 +112,14 @@
               pesquise seu setor</span
             >
 
-            <div class="contein-spam-icon">Solicitar → <mat-icon>offline_bolt</mat-icon></div>
+            <div class="contein-spam-icon">Como Solicitar → <mat-icon>offline_bolt</mat-icon></div>
           </div>
         </div>
-      </mat-card>
+      </div>
 
-      <mat-card class="servico-card card-ui">
+      <div class="servico-card card-ui">
         <div class="hero-top">
-          <img src="{{linkBrasaoPassos}}" />
+          <mat-icon>policy</mat-icon>
 
           <div class="hero-titulo">
             <h4>Segurança Urbana</h4>
@@ -126,15 +128,15 @@
               iluminação, áreas <br />abandonadas.</span
             >
 
-            <div class="contein-spam-icon">Solicitar → <mat-icon>offline_bolt</mat-icon></div>
+            <div class="contein-spam-icon">Como Solicitar → <mat-icon>offline_bolt</mat-icon></div>
           </div>
         </div>
-      </mat-card>
+      </div>
 
-      <mat-card class="servico-card card-ui">
+      <div class="servico-card card-ui">
         <div class="hero-top">
-          <img src="{{linkBrasaoPassos}}" />
-
+          <!-- <img src="{{linkBrasaoPassos}}" /> -->
+          <mat-icon>local_hospital</mat-icon>
           <div class="hero-titulo">
             <h4>Saúde</h4>
             <span
@@ -142,14 +144,14 @@
               estrutura, reclamações.</span
             >
 
-            <div class="contein-spam-icon">Solicitar → <mat-icon>offline_bolt</mat-icon></div>
+            <div class="contein-spam-icon">Como Solicitar → <mat-icon>offline_bolt</mat-icon></div>
           </div>
         </div>
-      </mat-card>
+      </div>
 
-      <mat-card class="servico-card card-ui">
+      <div class="servico-card card-ui">
         <div class="hero-top">
-          <img src="{{linkBrasaoPassos}}"/>
+          <mat-icon>miscellaneous_services</mat-icon>
 
           <div class="hero-titulo">
             <h4>Outros Serviços</h4>
@@ -158,18 +160,19 @@
               e reclamações gerais.</span
             >
 
-            <div class="contein-spam-icon">Solicitar → <mat-icon>offline_bolt</mat-icon></div>
+            <div class="contein-spam-icon">Como Solicitar → <mat-icon>offline_bolt</mat-icon></div>
           </div>
         </div>
-      </mat-card>
+      </div>
     </div>
 
     <!-- Todo: acabar a parte de baixo -->
 
     <div class="conteiner">
-      <p>Como funciona?</p>
+      <p class="alerta">Como funciona?</p>
       <div class="grid-servicos">
-        <mat-card class="card-ui">
+        
+        <div class="card-ui">
           <div class="hero-top">
              <mat-icon>app_registration</mat-icon>
             <div class="hero-titulo">
@@ -179,9 +182,9 @@
                 faça sua solicitação.</span>
             </div>
           </div>
-        </mat-card>
+        </div>
 
-        <mat-card class="card-ui">
+        <div class="card-ui">
           <div class="hero-top">
             <mat-icon>send</mat-icon>
             <div class="hero-titulo">
@@ -193,9 +196,9 @@
               </span>
             </div>
           </div>
-        </mat-card>
+        </div>
 
-        <mat-card class="card-ui">
+        <div class="card-ui">
           <div class="hero-top">
             <mat-icon>monitoring</mat-icon>
             <div class="hero-titulo">
@@ -205,10 +208,10 @@
                 real.</span>
               </div>
           </div>
-        </mat-card>
+        </div>
 
 
-         <mat-card class="card-ui">
+         <div class="card-ui">
           <div class="hero-top">
             <mat-icon>task_alt</mat-icon>
             <div class="hero-titulo">
@@ -218,7 +221,7 @@
                 pela equipe.</span>
               </div>
           </div>
-        </mat-card>
+        </div>
       </div>
     </div>
   </div>
@@ -229,7 +232,7 @@
 
       <mat-card class="card-ui">
         <div class="hero-top">
-          <mat-icon>delete</mat-icon>
+          <mat-icon>recycling</mat-icon>
 
           <div class="hero-titulo">
             <h4>Coleta Seletiva</h4>

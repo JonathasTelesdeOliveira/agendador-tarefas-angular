@@ -1,6 +1,17 @@
 
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 .page-home {
-  background-color: #f7f9fc;
+  background-color: #f8fafc !important;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  justify-content: center;
 }
 /* responsivo */
 @media (max-width: 1024px) {
@@ -15,36 +26,46 @@
   }
 }
 
-
-
 // ===================================================
 
 
+span {
+  font-weight: 700;
+}
 /* =============================
    TOPO - LADO A LADO
 ============================= */
+
+.top-container {
+  display: flex;
+  gap: 50px;
+}
+
 .mat-card-superior {
-  display: flex !important;
-  flex-direction: row !important; /* Força a ficar na mesma linha */
-  justify-content: space-between; /* Empurra um para cada lado */
-  align-items: center; /* Alinha os dois verticalmente ao centro */
-  width: 100%;
-  padding: 32px;
-  box-sizing: border-box; /* Impede que o padding aumente o tamanho total */
-  gap: 32px;
-  flex-wrap: nowrap !important; /* PROÍBE a quebra de linha */
-  height: 35vh;
+  display: flex;
+  min-width: 100%;
+  align-items: center;
 }
 
 .top-left {
-  flex: 1; /* Faz o texto ocupar todo o espaço livre restante */
+  // flex: 1; /* Faz o texto ocupar todo o espaço livre restante */
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Garante que o texto fique alinhado à esquerda */
-  text-align: left;
+  text-align: center;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
+.task-section {
+  display: flex;
+  min-height: auto !important;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
 
 .grid-servicos-topo {
   display: flex;
@@ -56,13 +77,6 @@
   margin: 0;
 }
 
-app-tasks {
-  /* Flex: grow(0) shrink(0) basis(380px) */
-  flex: 0 0 380px !important; /* Crava o tamanho do agendador e impede que ele encolha */
-  width: 380px !important;
-  margin: 0 !important;
-}
-
 /* =============================
    Responsividade para Celular
 ============================= */
@@ -72,7 +86,7 @@ app-tasks {
     align-items: center;
     text-align: center;
   }
-  
+
   .top-left {
     align-items: center;
     text-align: center;
@@ -81,27 +95,9 @@ app-tasks {
   }
 }
 
-
-.task-section {
-  display: flex !important;
-  justify-content: center !important;
-  width: 100% !important;
-}
-
-.top-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  height: 45vh;
-}
 /* =============================
    CONTAINER
 ============================= */
-.conteiner-main {
-  padding-left: 16px;
- 
-}
 
 .top-left {
   flex: 1;
@@ -111,20 +107,15 @@ app-tasks {
 ============================= */
 .layout {
   display: flex;
-  gap: 24px;
 }
 
-.sidebar {
-  flex: 1;
-  min-width: 300px;
+.layout-conteiner {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background-color: rgb(178, 179, 187);
+  justify-content: space-evenly;
+  align-items: stretch;
+  width: 100%;
 }
-
-
-
 
 /* =============================
    CARD INTERNO (IMG + TEXTO)
@@ -132,8 +123,9 @@ app-tasks {
 .hero-top {
   display: flex;
   align-items: center;
-  gap: 12px;
-  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  height: 100%;
 }
 
 .hero-top img {
@@ -163,14 +155,20 @@ app-tasks {
    SIDEBAR (ISOLADA)hero-top
 
 ============================= */
-.sidebar mat-card {
-  width: 100%;
-  padding: 16px;
-  border-radius: 16px;
-  border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+.sidebar {
   display: flex;
   flex-direction: column;
+  background-color: rgb(178, 179, 187);
+  margin-right: 10px;
+}
+
+.sidebar mat-card {
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  width: 100%;
   gap: 12px;
 }
 
@@ -194,22 +192,20 @@ app-tasks {
 }
 
 .grid-servicos {
+  margin-left: 10px;
+  padding: 10px 10px;
+  width: 97%;
   display: grid;
-
-//   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
   gap: 16px;
-   object-fit: cover;
+  object-fit: cover;
   grid-template-columns: repeat(4, 1fr);
-
-  
+  grid-auto-flow: row;
 }
-
 
 section {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 18px !important;
   .button {
     background-color: #e67e22;
     color: white !important;
@@ -239,21 +235,55 @@ section {
   gap: 16px;
 }
 
-
 .card-ui {
+  width: 90%;
   background: linear-gradient(145deg, #ffffff, #f5f5f5);
 
   box-shadow:
-    6px 6px 12px rgba(0,0,0,0.08),
-    -6px -6px 12px rgba(255,255,255,0.8);
+    6px 6px 12px rgba(0, 0, 0, 0.08),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
 
+  border-radius: 16px;
+  transition: all 0.3s ease;
 }
+
+// .card-ui {
+//   width: 90%;
+//   background: linear-gradient(145deg, #ffffff, #f5f5f5);
+
+//   box-shadow:
+//     6px 6px 12px rgba(0, 0, 0, 0.08),
+//     -6px -6px 12px rgba(255, 255, 255, 0.8);
+// }
 
 /* Hover elegante */
 .card-ui:hover {
   transform: translateY(-6px) scale(1.01);
 
-  box-shadow: 
+  box-shadow:
     0 12px 24px rgba(0, 0, 0, 0.12),
     0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.alerta {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e67e22;
+}
+
+.servico-card {
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  position: relative;
+  border-style: solid;
+  border-width: 0;
+
+  width: 100%;
+  gap: 12px;
+  //   padding: 16px;
+  //   border-radius: 16px;
+  //   border: none;
+  //   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
